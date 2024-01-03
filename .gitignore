@@ -9,3 +9,8 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+#001 排除build文件夹内容
+**/build/
+**/.vs/
+**/out/
