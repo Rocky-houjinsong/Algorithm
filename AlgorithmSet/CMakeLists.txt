@@ -6,9 +6,10 @@ cmake_minimum_required (VERSION 3.20)
 # 声明 该项目 为  <算法集合> 版本为 0.1
 # --$$: C++语言, 版本为 2.1
 project (Demo LANGUAGES CXX VERSION 2.1 )
-
+#启用测试功能
+enable_testing()
 #可执行程序 
-add_executable(Demo tutorial.cpp)
+add_executable(Demo tutorial.cpp "test/test_randomList.cpp" )
 set_target_properties(Demo PROPERTIES LINKER_LANGUAGE CXX)
 
 #-----------------------------------01编译器设置 -------------------------------
@@ -60,7 +61,8 @@ include(MyUsefulFuncs)
 
 #--------------------------02 类库子文件夹声明(类库使用)-------------------
 add_subdirectory(randomList)
-
+#将gTest添加到项目(此时未使用)
+add_subdirectory(third_party/googletest)
 #----------------------------- 类库添加 --------------------------------
 #虚拟接口库 -- 启用C++标准/特性 使用
 add_library(tutorial_compiler_flags INTERFACE) 
@@ -85,9 +87,17 @@ target_include_directories(Demo PUBLIC
 #借助模板文件 CXX 可读取 CMake文件变量
 configure_file(TutorialConfig.h.in TutorialConfig.h)
 
+#-------------------------04  变量 设置 使用 ----------------------
 
+#项目根路径
+set(AlgorithmSet_WORLD_PROJECT_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 
+#------------------------  05 可选项 -----------------------------------
 
+option(BUILD_TEST "是否 Builds Tests !!!!!,默认 OFF" OFF)
+if(BUILD_TEST)
+    add_subdirectory(test)
+endif()
 
 #----------------------------------  生成阶段 变量查看----------------------
 message(STATUS -------------顶级CMakeLists message-------------------------)

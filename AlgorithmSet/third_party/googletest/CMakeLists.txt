@@ -5,7 +5,6 @@ cmake_minimum_required(VERSION 3.13)
 
 project(googletest-distribution)
 set(GOOGLETEST_VERSION 1.14.0)
-set_target_properties( libsdemo PROPERTIES LINKER_LANGUAGE CXX)
 if(NOT CYGWIN AND NOT MSYS AND NOT ${CMAKE_SYSTEM_NAME} STREQUAL QNX)
   set(CMAKE_CXX_EXTENSIONS OFF)
 endif()
