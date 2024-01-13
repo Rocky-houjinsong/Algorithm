@@ -14,4 +14,7 @@ target_include_directories(randomList PUBLIC include)
 target_link_libraries(randomList PUBLIC tutorial_compiler_flags)
 
 
+
+#----------------------Message-----------------
+message(STATUS ------------- randomList  CMakeLists message-------------------------)
 message(STATUS  srcs ---- ${srcs})

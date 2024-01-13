@@ -5,6 +5,7 @@
 
 
 #include "randomList/generateRandomArray.h"
+#include "randomList/src/generateRandomArray.cpp"
 
 
 int main(int argc, char* argv[])
@@ -13,9 +14,9 @@ int main(int argc, char* argv[])
 
     // 测试排序算法辅助函数
     int N = 20000;
-    int* arr = generateRandomArray(N, 0, 100000);
-    selectionSort(arr, N);
-    printArray(arr, N);
+    int* arr = SortTestHelper::generateRandomArray(N, 0, 100000);
+    SortTestHelper::selectionSort(arr, N);
+    SortTestHelper::printArray(arr, N);
     delete[] arr;
 
     return 0;

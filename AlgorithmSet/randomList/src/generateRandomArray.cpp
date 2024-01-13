@@ -1,9 +1,13 @@
+#pragma once
+
 #ifndef randomList_H   // 确保头文件只被编译一次  防止头文件的重复包含
 #define randomList_H
 
 #include <iostream>
 #include <ctime>
 #include <cassert>
+
+#include <randomList/generateRandomArray.h>
 
 using namespace std;
 
